@@ -59,6 +59,9 @@ const getData = asyncHandler(async (req, res) => {
          
           const productlinename = $(elem).find("h1").text();
           const overview = $(elem).find("p").text();
+          tmpData['Manufacturer'] = 'J Mish Mills';
+          tmpData['Supplier'] = 'J Mish Mills';
+          tmpData['Brand'] = 'J Mish Mills';
           tmpData['ProductLineName'] = productlinename
           tmpData['Overview'] = overview
           // DataArray.push({
@@ -84,8 +87,8 @@ const getData = asyncHandler(async (req, res) => {
       })
       
       $('.products').find('.type-product').each(async (_, elem) => {
-          const color = $(elem).find(".woocommerce-loop-product__title").text();
-          const image = $(elem).find(".woocommerce-loop-product__link").find("img").attr("src");
+          var color = $(elem).find(".woocommerce-loop-product__title").text();
+          var image = $(elem).find(".woocommerce-loop-product__link").find("img").attr("src");
           tmpData['ProductImage'] = image
           tmpData['ColorName'] = color
   
