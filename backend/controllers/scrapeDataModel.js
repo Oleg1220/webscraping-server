@@ -4,6 +4,7 @@ const dataScrape = require("../models/scrapeDataModel");
 const cheerio = require("cheerio");
 const axios = require("axios");
 const TestUrl = "https://jmish.com/browse/";
+const manufacturer = 'J Mish Mills'
 
 // @desc Get 
 // @route GET
@@ -59,16 +60,12 @@ const getData = asyncHandler(async (req, res) => {
          
           const productlinename = $(elem).find("h1").text();
           const overview = $(elem).find("p").text();
-          tmpData['Manufacturer'] = 'J Mish Mills';
-          tmpData['Supplier'] = 'J Mish Mills';
-          tmpData['Brand'] = 'J Mish Mills';
+          tmpData['Manufacturer'] = manufacturer;
+          tmpData['Supplier'] = manufacturer;
+          tmpData['Brand'] = manufacturer;
           tmpData['ProductLineName'] = productlinename
           tmpData['Overview'] = overview
-          // DataArray.push({
-          //     ProductLineName: productlinename,
-          //     Overview: overview
-          // })
-  
+
       })
   
   
